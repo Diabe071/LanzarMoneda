@@ -6,11 +6,10 @@
     body {
       text-align: center;
     }
-
     h1 {
       color: #333;
+      font-size: 24px;
     }
-
     button {
       padding: 10px 20px;
       font-size: 18px;
@@ -19,19 +18,16 @@
       border: none;
       cursor: pointer;
     }
-
     button:hover {
       background-color: #45a049;
     }
-
     h2 {
       color: #666;
+      font-size: 20px;
     }
-
     p {
       font-size: 16px;
     }
-
     .coin {
       width: 200px;
       height: 200px;
@@ -39,7 +35,11 @@
       position: relative;
       perspective: 1000px;
       background-size: cover;
-      background-image: url('cara.png'); /* Inicialmente muestra la cara de la moneda */
+      background-image: url('cara.png');
+      transition: transform 0.6s;
+    }
+    .flip {
+      transform: rotateY(180deg);
     }
   </style>
 </head>
@@ -51,15 +51,12 @@
   <h2>Contador:</h2>
   <p>Cara: <span id="caraCount">0</span></p>
   <p>Cruz: <span id="cruzCount">0</span></p>
-
   <script>
     let caraCount = 0;
     let cruzCount = 0;
     const coinElement = document.getElementById('coin');
-
     function flipCoin() {
       const result = Math.random() < 0.5 ? 'Cara' : 'Cruz';
-
       if (result === 'Cara') {
         caraCount++;
         document.getElementById('caraCount').innerText = caraCount;
@@ -67,11 +64,12 @@
         cruzCount++;
         document.getElementById('cruzCount').innerText = cruzCount;
       }
-
       document.getElementById('result').innerText = `Resultado: ${result}`;
-
-      // Cambia la imagen de fondo de la moneda según el resultado
-      coinElement.style.backgroundImage = `url('${result.toLowerCase()}.png')`;
+      coinElement.style.transform = 'rotateY(180deg)';
+      setTimeout(() => {
+        coinElement.style.backgroundImage = `url('${result.toLowerCase()}.png')`;
+        coinElement.style.transform = '';
+      }, 600);
     }
   </script>
 </body>
