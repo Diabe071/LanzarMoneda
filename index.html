@@ -48,7 +48,7 @@
       height: 200px;
       position: relative;
       perspective: 1000px;
-      background-size: cover;
+      background-size: contain; /* Evita que la imagen se repita y se ajusta al tamaño del elemento */
       background-image: url('cara.png'); /* Inicialmente muestra la cara de la moneda */
     }
 
@@ -63,12 +63,12 @@
 
     .cara {
       background-image: url('cara.png');
-      background-size: cover;
+      background-size: contain;
     }
 
     .cruz {
       background-image: url('cruz.png');
-      background-size: cover;
+      background-size: contain;
       transform: rotateY(180deg);
     }
 
