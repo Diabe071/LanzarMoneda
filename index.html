@@ -5,16 +5,17 @@
   <style>
     body {
       text-align: center;
+      font-size: 16px;
     }
 
     h1 {
       color: #333;
-      font-size: 2em;
+      font-size: 24px;
     }
 
     button {
-      padding: 1em 2em;
-      font-size: 1.5em;
+      padding: 10px 20px;
+      font-size: 18px;
       background-color: #4CAF50;
       color: white;
       border: none;
@@ -27,19 +28,28 @@
 
     h2 {
       color: #666;
-      font-size: 1.8em;
+      font-size: 20px;
     }
 
     p {
-      font-size: 1.6em;
+      font-size: 16px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
 
     .coin {
-      width: 30%;
-      padding-bottom: 30%;
-      margin: 2em auto;
+      width: 200px;
+      height: 200px;
       position: relative;
       perspective: 1000px;
+      background-size: cover;
+      background-image: url('cara.png'); /* Inicialmente muestra la cara de la moneda */
     }
 
     .side {
@@ -70,35 +80,20 @@
       .coin {
         width: 60%;
         padding-bottom: 60%;
-        margin: 2em auto;
-      }
-      
-      h1 {
-        font-size: 1.6em;
-      }
-      
-      button {
-        font-size: 1.2em;
-      }
-      
-      h2 {
-        font-size: 1.4em;
-      }
-      
-      p {
-        font-size: 1.2em;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Lanzamiento de Moneda</h1>
-  <div class="coin" id="coin"></div>
-  <button onclick="flipCoin()">Lanzar Moneda</button>
-  <p id="result"></p>
-  <h2>Contador:</h2>
-  <p>Cara: <span id="caraCount">0</span></p>
-  <p>Cruz: <span id="cruzCount">0</span></p>
+  <div class="container">
+    <h1>Lanzamiento de Moneda</h1>
+    <div class="coin" id="coin"></div>
+    <button onclick="flipCoin()">Lanzar Moneda</button>
+    <p id="result"></p>
+    <h2>Contador:</h2>
+    <p>Cara: <span id="caraCount">0</span></p>
+    <p>Cruz: <span id="cruzCount">0</span></p>
+  </div>
 
   <script>
     let caraCount = 0;
